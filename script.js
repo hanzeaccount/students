@@ -4,40 +4,15 @@
 const submitElem = document.getElementById('submit')
 const emailElem = document.getElementById('email')
 const passwordElem = document.getElementById('password')
-const programElem = document.getElementById('program')
-const courseElem = document.getElementById('course')
 
 
-let diplomaCourses = ['Dutch language', 'Information Technology', 'International accounting', 'Global marketing', 'ACCA', 'CCNA', 'CCIE', 'CCNP']
-let masterCourse = ['Classic Music', 'Composition & Music Production', 'Creative Media & Game', 'Design', 'Energy & Power Electronics', 'Fine Art', 'International Business', 'International communication', 'Sport studies', 'Popular culture', 'Mechanical Engineering', 'Jazz']
+
 
 let username = 'hussainbehzad3@gmail.com'
 let password = 'Behzad@1994'
 
 
-programElem.addEventListener('change', (event)=>{
-    if(event.target.value == 'Diploma'){
-        courseElem.innerHTML = ''
-        diplomaCourses.forEach(course =>{
-            courseElem.insertAdjacentHTML('afterbegin', 
-            `
-            <option>${course}</option>
-            `
 
-            )
-        })
-    }else if(event.target.value == 'Master programs'){
-        courseElem.innerHTML = ''
-        masterCourse.forEach(course =>{
-            courseElem.insertAdjacentHTML('afterbegin', 
-            `
-            <option>${course}</option>
-            `
-
-            )
-        })
-    }
-})
 
 
 submitElem.addEventListener('click', ()=>{
