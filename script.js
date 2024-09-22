@@ -25,13 +25,18 @@ submitElem.addEventListener('click', ()=>{
             confirmButtonColor: '#E9724C'
           });
     }else if(emailElem.value == username && passwordElem.value == password){
+      submitElem.style.opacity = '0.7'
+      setTimeout(() => {
         Swal.fire({
-            title: "Welcome!",
-            text: "You will redircet to user panel",
-            icon: "success",
-            confirmButtonColor: '#E9724C',
-            showConfirmButton: false
-          });
+          title: "Welcome!",
+          text: "You will redircet to user panel",
+          icon: "success",
+          confirmButtonColor: '#E9724C',
+          showConfirmButton: false
+        });
+        submitElem.style.opacity = '1'
+      }, 4000);
+        
           setTimeout(() => {
             location.href='./main.html'
           }, 3000);
