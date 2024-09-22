@@ -33,7 +33,7 @@ submitElem.addEventListener('click', ()=>{
             showConfirmButton: false
           });
           setTimeout(() => {
-            location.href='./application.html'
+            location.href='./main.html'
           }, 3000);
     }else{
         Swal.fire({
