@@ -40,7 +40,7 @@ submitElem.addEventListener('click', ()=>{
         
           setTimeout(() => {
             location.href='./main.html'
-          }, 4000);
+          }, 5000);
     }else{
         Swal.fire({
             title: "Error!",
