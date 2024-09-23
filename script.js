@@ -26,6 +26,7 @@ submitElem.addEventListener('click', ()=>{
           });
     }else if(emailElem.value == username && passwordElem.value == password){
       submitElem.style.opacity = '0.7'
+     
       setTimeout(() => {
         Swal.fire({
           title: "Welcome!",
@@ -35,11 +36,11 @@ submitElem.addEventListener('click', ()=>{
           showConfirmButton: false
         });
         submitElem.style.opacity = '1'
-      }, 4000);
+      }, 3000);
         
           setTimeout(() => {
             location.href='./main.html'
-          }, 3000);
+          }, 4000);
     }else{
         Swal.fire({
             title: "Error!",
