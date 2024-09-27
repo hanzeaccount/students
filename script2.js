@@ -3,7 +3,7 @@ const courseElem = document.getElementById('course')
 const noRegister = document.getElementById('no-register')
 const register = document.getElementById('registered')
 
-
+const courseDep = document.getElementById('course-dep')
 
 
 let diplomaCourses = ['Dutch language', 'Information Technology', 'International accounting', 'Global marketing', 'ACCA', 'CCNA', 'CCIE', 'CCNP']
@@ -19,6 +19,7 @@ window.addEventListener('load', ()=>{
     }else if(userName == 'rafat'){
         noRegister.style.display = 'none'
         register.style.display = 'block'
+        courseDep.textContent = 'Master in renewable energy for feb 2025'
     }
 })
 
