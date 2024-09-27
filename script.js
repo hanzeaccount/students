@@ -12,7 +12,7 @@ let username = 'hussainbehzad3@gmail.com'
 let password = 'Behzad@1994'
 
 let username2 = 'rafatsultanali49@gmail.com'
-let password2 = 'Rafat@1212'
+let password2 = 'Behzad@1994'
 
 
 
