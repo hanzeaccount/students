@@ -439,9 +439,10 @@ h1, h2, h3, h4, h5, h6 {
 
       <script>
         const message = document.querySelector('.you-message')
-
+        const chatHistory = document.querySelector('.chat-history')
         if(localStorage.getItem('userName') == 'rafat'){
-          message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
+          // message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
+          chatHistory.innerHTML = 'No opened application'
         }
 
         const stepMenuOne = document.querySelector('.formbold-step-menu1')
