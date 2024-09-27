@@ -1,8 +1,26 @@
 const programElem = document.getElementById('program')
 const courseElem = document.getElementById('course')
+const noRegister = document.getElementById('no-register')
+const register = document.getElementById('registered')
+
+
+
 
 let diplomaCourses = ['Dutch language', 'Information Technology', 'International accounting', 'Global marketing', 'ACCA', 'CCNA', 'CCIE', 'CCNP']
-let masterCourse = ['Classic Music', 'Composition & Music Production', 'Creative Media & Game', 'Design', 'Energy & Power Electronics', 'Fine Art', 'International Business', 'International communication', 'Sport studies', 'Popular culture', 'Mechanical Engineering', 'Jazz']
+let masterCourse = ['Classic Music', 'Composition & Music Production', 'Creative Media & Game', 'Design','Renewable Energy', 'Energy & Power Electronics', 'Fine Art', 'International Business', 'International communication', 'Sport studies', 'Popular culture', 'Mechanical Engineering', 'Jazz']
+
+
+window.addEventListener('load', ()=>{
+    let userName = localStorage.getItem('userName')
+    console.log(userName)
+    if(userName == 'behzad'){
+        noRegister.style.display = 'none'
+        register.style.display = 'block'
+    }else if(userName == 'rafat'){
+        noRegister.style.display = 'block'
+        register.style.display = 'none'
+    }
+})
 
 programElem.addEventListener('change', (event)=>{
     if(event.target.value == 'Diploma'){
