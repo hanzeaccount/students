@@ -61,7 +61,7 @@ submitElem.addEventListener('click', ()=>{
       }, 3000);
         
           setTimeout(() => {
-            location.href='./application.html'
+            location.href='./main.html'
           }, 5000);
     }else{
         Swal.fire({
