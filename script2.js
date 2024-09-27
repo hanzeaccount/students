@@ -17,8 +17,8 @@ window.addEventListener('load', ()=>{
         noRegister.style.display = 'none'
         register.style.display = 'block'
     }else if(userName == 'rafat'){
-        noRegister.style.display = 'block'
-        register.style.display = 'none'
+        noRegister.style.display = 'none'
+        register.style.display = 'block'
     }
 })
 
