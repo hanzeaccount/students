@@ -365,8 +365,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #003366;
 }
 
-
-
+#accept, #accept-you{
+  display: none;
+}
+a{
+        color:#000;
+    }
 
     </style>
 </head>
@@ -428,7 +432,35 @@ h1, h2, h3, h4, h5, h6 {
               </div>
               <div class="message me-message float-right"> Thanks for applying in Hanze University of applied science. We recived your application, we will post updates once there is an update on your application.  </div>
             </li>
-          
+            <li  id="accept" class="clearfix">
+              <div class="message-data align-right">
+                <span class="message-data-name">Hanze admission department (2024/10/01)</span> <i class="fa fa-circle me"></i>
+              </div>
+              <div class="message me-message float-right"> 
+                Congratulations dear Hussain Behzad. <br/>
+                I am pleased to inform you that your application has been successful.you can download documents from below links:
+                <br />
+                <a href="./ACCEPTANCE LETTER.pdf" target="_blank" style="display:block; margin-top:10px;">Acceptance letter</a>
+                <a href="./Warning letter.pdf" target="_blank">Warning letter</a><br/><br />
+                <p>Make your payment with bellow link: </p>
+                <a href="./pay-tuition.html?student=Behzad?student-number=4003241" target="_blank">Click for payment</a><br /><br/>
+                or you can contact with your Student affairs expert : <br />
+                <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
+                </div>
+            </li>
+            <li id="accept-you">
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
+              </div>
+              <div class="message you-message">
+                Payment slip and other documents if mentioned.
+             <input type="file" multiple >
+                <br />
+                <div style="width:100%; display: flex; justify-content: end;">
+                <button style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
+              </div>
+              </div>
+            </li>
           </ul>
           
         </div> <!-- end chat-history -->
@@ -439,10 +471,14 @@ h1, h2, h3, h4, h5, h6 {
 
       <script>
         const message = document.querySelector('.you-message')
-     
+        const accept = document.querySelector('#accept')
+        const acceptMe = document.querySelector('#accept-you')
         if(localStorage.getItem('userName') == 'rafat'){
           message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
           
+        }else if(localStorage.getItem('userName') == 'behzad'){
+          accept.style.display = 'inline'
+          acceptMe.style.display = 'inline'
         }
 
         const stepMenuOne = document.querySelector('.formbold-step-menu1')
