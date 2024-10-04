@@ -1,3 +1,14 @@
+window.addEventListener('load',()=>{
+    if(!localStorage.getItem('userName')){
+        location.href= './'
+    }
+})
+const logout = document.getElementById('logout')
+
+logout.addEventListener('click', ()=>{
+    localStorage.removeItem('userName')
+    location.href='./'
+  })
 const programElem = document.getElementById('program')
 const courseElem = document.getElementById('course')
 const noRegister = document.getElementById('no-register')

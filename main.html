@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #003366;
 }
 
-#accept, #accept-you{
+#accept, #accept-you, #acceptRafat, #accept-you-rafat{
   display: none;
 }
 a{
@@ -373,6 +373,11 @@ a{
     }
 
     </style>
+    <script>window.addEventListener('load',()=>{
+      if(!localStorage.getItem('userName')){
+          location.href= './'
+      }
+  })</script>
 </head>
 <body>
  
@@ -406,7 +411,7 @@ a{
           <li class="nav-item active"><a href="main.html"><i class="fas fa-user"></i><span class="menu-text">Application</span></a></li>
           <li class="nav-item "><a href="https://www.hanze.nl/en/programmes"><i class="fas fa-file-alt"></i><span class="menu-text">Programs</span></a></li>
           <li class="nav-item "><a href="https://www.hanze.nl/en/about-hanze"><i class="fas fa-play "></i><span class="menu-text">About Hanze</span></a></li>
-          <li class="nav-item"><a href="https://www.hanze.nl/en"><i class="fas fa-sign-out-alt"></i><span class="menu-text">Logout</span></a></li>
+          <li class="nav-item"><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i><span class="menu-text">Logout</span></a></li>
         </ul>
       </nav>
     </div>
@@ -444,11 +449,40 @@ a{
                 <a href="./Warning letter.pdf" target="_blank">Warning letter</a><br/><br />
                 <p>Make your payment with bellow link: </p>
                 <a href="./pay-tuition.html?student=Behzad?student-number=4003241" target="_blank">Click for payment</a><br /><br/>
-                or you can contact with your Student affairs expert : <br />
+                or you can contact with your Student affairs expert on whatsapp: <br />
                 <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
                 </div>
             </li>
             <li id="accept-you">
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
+              </div>
+              <div class="message you-message">
+                Payment slip and other documents if mentioned.
+             <input type="file" multiple >
+                <br />
+                <div style="width:100%; display: flex; justify-content: end;">
+                <button style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
+              </div>
+              </div>
+            </li>
+            <li  id="acceptRafat" class="clearfix">
+              <div class="message-data align-right">
+                <span class="message-data-name">Hanze admission department (2024/10/04)</span> <i class="fa fa-circle me"></i>
+              </div>
+              <div class="message me-message float-right"> 
+                Congratulations dear Sultan Ali Rafat. <br/>
+                I am pleased to inform you that your application has been successful.you can download documents from below links:
+                <br />
+                <a href="./ACCEPTANCE LETTER - Rafat.pdf" target="_blank" style="display:block; margin-top:10px;">Acceptance letter</a>
+<br/>
+                <p>Make your payment with bellow link before payment deadline on 2024/10/14: </p>
+                <a href="./pay-tuition.html" target="_blank">Click for payment</a><br /><br/>
+                You can contact with your Student affairs expert on whatsapp: <br />
+                <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
+                </div>
+            </li>
+            <li id="accept-you-rafat">
               <div class="message-data">
                 <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
               </div>
@@ -470,11 +504,20 @@ a{
     </div>
 
       <script>
+        const logout = document.getElementById('logout')
         const message = document.querySelector('.you-message')
         const accept = document.querySelector('#accept')
         const acceptMe = document.querySelector('#accept-you')
+        const acceptMeRafat = document.querySelector('#accept-you-rafat')
+        const acceptRafat = document.querySelector('#acceptRafat')
+        logout.addEventListener('click', ()=>{
+          localStorage.removeItem('userName')
+          location.href='./'
+        })
         if(localStorage.getItem('userName') == 'rafat'){
           message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
+          acceptMeRafat.style.display = 'inline'
+          acceptRafat.style.display = 'inline'
           
         }else if(localStorage.getItem('userName') == 'behzad'){
           accept.style.display = 'inline'
@@ -488,7 +531,7 @@ a{
         const stepOne = document.querySelector('.formbold-form-step-1')
         const stepTwo = document.querySelector('.formbold-form-step-2')
         const stepThree = document.querySelector('.formbold-form-step-3')
-      
+
         const formSubmitBtn = document.querySelector('.formbold-btn')
         const formBackBtn = document.querySelector('.formbold-back-btn')
       
