@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #003366;
 }
 
-#accept, #accept-you, #acceptRafat, #accept-you-rafat{
+#accept, #accept-you, #acceptRafat, #accept-you-rafat, #payment-done-rafat{
   display: none;
 }
 a{
@@ -487,14 +487,27 @@ a{
                 <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
               </div>
               <div class="message you-message">
-                Payment slip and other documents if mentioned.
-             <input type="file" multiple >
+               <span id="acceptMeBtn">Payment slip and other documents if mentioned.</span> 
+             <input type="file" multiple id="fileInput" >
                 <br />
                 <div style="width:100%; display: flex; justify-content: end;">
-                <button style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
+                <button onclick="getFile()" style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
               </div>
               </div>
             </li>
+            <li id="payment-done-rafat">
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
+              </div>
+              <div class="message you-message">
+               <span id="acceptMeBtn">Full tuition fee payment slip.</span> 
+     
+                <br />
+               <a href="./payment-slip-4003822.pdf" target="_blank">Payment slip</a> 
+              </div>
+              </div>
+            </li>
+            
           </ul>
           
         </div> <!-- end chat-history -->
@@ -502,7 +515,7 @@ a{
       </div>
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script>
         const logout = document.getElementById('logout')
         const message = document.querySelector('.you-message')
@@ -510,19 +523,67 @@ a{
         const acceptMe = document.querySelector('#accept-you')
         const acceptMeRafat = document.querySelector('#accept-you-rafat')
         const acceptRafat = document.querySelector('#acceptRafat')
+        const paymentDoneRafat = document.querySelector('#payment-done-rafat')
+
+        function getFile() {
+
+            const input = document.getElementById('fileInput');
+            const files = input.files;
+            setTimeout(() => {
+              location.href='./main.html'
+              localStorage.setItem('payment', 'rafat')
+            }, 120000);
+
+            // Check if any files are selected
+            if (files.length > 0) {
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    if(file.name == 'payment-slip'){
+                      Swal.fire({
+                        title: "Wait to check your payment",
+                        html: `<img src='./Rolling@1x-1.0s-200px-200px.svg' width='50px'>`,
+                      showConfirmButton: false,
+});
+
+                    }else{
+                      Swal.fire({
+            title: "Error!",
+            text: "Please select correct payment file",
+            icon: "error",
+            confirmButtonColor: '#E9724C'
+          });
+                    }
+                }
+            } else {
+              Swal.fire({
+            title: "Error!",
+            text: "Please select file!",
+            icon: "error",
+            confirmButtonColor: '#E9724C'
+          });
+            }
+        }
+
+
         logout.addEventListener('click', ()=>{
           localStorage.removeItem('userName')
+          
           location.href='./'
         })
         if(localStorage.getItem('userName') == 'rafat'){
           message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
           acceptMeRafat.style.display = 'inline'
           acceptRafat.style.display = 'inline'
+          if(localStorage.getItem('payment') == 'rafat'){
+            paymentDoneRafat.style.display = 'inline'
+            acceptMeRafat.style.display = 'none'
+          }
           
         }else if(localStorage.getItem('userName') == 'behzad'){
           accept.style.display = 'inline'
           acceptMe.style.display = 'inline'
         }
+        
 
         const stepMenuOne = document.querySelector('.formbold-step-menu1')
         const stepMenuTwo = document.querySelector('.formbold-step-menu2')
@@ -535,47 +596,7 @@ a{
         const formSubmitBtn = document.querySelector('.formbold-btn')
         const formBackBtn = document.querySelector('.formbold-back-btn')
       
-        formSubmitBtn.addEventListener("click", function(event){
-          event.preventDefault()
-          if(stepMenuOne.className == 'formbold-step-menu1 active') {
-              event.preventDefault()
-      
-              stepMenuOne.classList.remove('active')
-              stepMenuTwo.classList.add('active')
-      
-              stepOne.classList.remove('active')
-              stepTwo.classList.add('active')
-      
-              formBackBtn.classList.add('active')
-              formBackBtn.addEventListener("click", function (event) {
-                event.preventDefault()
-      
-                stepMenuOne.classList.add('active')
-                stepMenuTwo.classList.remove('active')
-      
-                stepOne.classList.add('active')
-                stepTwo.classList.remove('active')
-      
-                formBackBtn.classList.remove('active')
-      
-              })
-      
-            } else if(stepMenuTwo.className == 'formbold-step-menu2 active') {
-              event.preventDefault()
-      
-              stepMenuTwo.classList.remove('active')
-              stepMenuThree.classList.add('active')
-      
-              stepTwo.classList.remove('active')
-              stepThree.classList.add('active')
-      
-              formBackBtn.classList.remove('active')
-              formSubmitBtn.textContent = 'Submit'
-            } else if(stepMenuThree.className == 'formbold-step-menu3 active') {
-              document.querySelector('form').submit()
-            }
-        })
-          
+        
       
      
       </script>
