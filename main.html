@@ -531,7 +531,7 @@ a{
             const files = input.files;
             setTimeout(() => {
               location.href='./main.html'
-              localStorage.setItem('payment', 'rafat')
+              // localStorage.setItem('payment', 'rafat')
             }, 120000);
 
             // Check if any files are selected
@@ -544,13 +544,12 @@ a{
                         html: `<img src='./Rolling@1x-1.0s-200px-200px.svg' width='50px'>`,
                       showConfirmButton: false,
 });
-
                     }else{
                       Swal.fire({
-            title: "Error!",
-            text: "Please select correct payment file",
-            icon: "error",
-            confirmButtonColor: '#E9724C'
+                    title: "Error!",
+                    text: "Please select correct payment file",
+                    icon: "error",
+                    confirmButtonColor: '#E9724C'
           });
                     }
                 }
