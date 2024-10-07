@@ -7,6 +7,7 @@ const logout = document.getElementById('logout')
 
 logout.addEventListener('click', ()=>{
     localStorage.removeItem('userName')
+    localStorage.removeItem('payment')
     location.href='./'
   })
 const programElem = document.getElementById('program')

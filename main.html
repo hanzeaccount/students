@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #003366;
 }
 
-#accept, #accept-you, #acceptRafat, #accept-you-rafat, #payment-done-rafat{
+#accept, #accept-you, #acceptRafat, #accept-you-rafat, #payment-done-rafat,#payment-done-behzad{
   display: none;
 }
 a{
@@ -459,13 +459,30 @@ a{
               </div>
               <div class="message you-message">
                 Payment slip and other documents if mentioned.
-             <input type="file" multiple >
+             <input type="file" multiple id="behzadFile" >
                 <br />
                 <div style="width:100%; display: flex; justify-content: end;">
-                <button style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
+                <button onclick="getFileBehzad()" style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
               </div>
               </div>
             </li>
+            
+            <li id="payment-done-behzad">
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
+              </div>
+              <div class="message you-message">
+                Full tuition fee payment slip.
+          
+                <br />
+          
+                <a href="./payment-slip-4003241.pdf" target="_blank">Payment slip</a> 
+                 </div>
+            </li>
+
+
+
+
             <li  id="acceptRafat" class="clearfix">
               <div class="message-data align-right">
                 <span class="message-data-name">Hanze admission department (2024/10/04)</span> <i class="fa fa-circle me"></i>
@@ -482,6 +499,7 @@ a{
                 <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
                 </div>
             </li>
+            
             <li id="accept-you-rafat">
               <div class="message-data">
                 <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
@@ -494,7 +512,10 @@ a{
                 <button onclick="getFile()" style="width:100px; height: 30px; background-color: #E9724C; border:none; color:#fff; cursor: pointer;">Submit</button>
               </div>
               </div>
+
             </li>
+
+
             <li id="payment-done-rafat">
               <div class="message-data">
                 <span class="message-data-name"><i class="fa fa-circle you"></i> You</span>
@@ -507,6 +528,10 @@ a{
               </div>
               </div>
             </li>
+
+            
+
+           
             
           </ul>
           
@@ -524,26 +549,29 @@ a{
         const acceptMeRafat = document.querySelector('#accept-you-rafat')
         const acceptRafat = document.querySelector('#acceptRafat')
         const paymentDoneRafat = document.querySelector('#payment-done-rafat')
-
+        const paymentDoneBehzad = document.querySelector('#payment-done-behzad')
         function getFile() {
 
             const input = document.getElementById('fileInput');
             const files = input.files;
-            setTimeout(() => {
-              location.href='./main.html'
-              // localStorage.setItem('payment', 'rafat')
-            }, 120000);
+           
 
             // Check if any files are selected
             if (files.length > 0) {
                 for (let i = 0; i < files.length; i++) {
                     const file = files[i];
-                    if(file.name == 'payment-slip'){
+                 
+                    if(file.name == 'payment-slip.pdf'){
+                      
                       Swal.fire({
                         title: "Wait to check your payment",
                         html: `<img src='./Rolling@1x-1.0s-200px-200px.svg' width='50px'>`,
                       showConfirmButton: false,
 });
+setTimeout(() => {
+              location.href='./main.html'
+              localStorage.setItem('payment', 'rafat')
+            }, 160000);
                     }else{
                       Swal.fire({
                     title: "Error!",
@@ -564,8 +592,51 @@ a{
         }
 
 
+        function getFileBehzad() {
+
+const input = document.getElementById('behzadFile');
+const files = input.files;
+
+
+// Check if any files are selected
+if (files.length > 0) {
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+     
+        if(file.name == 'payment-slip.pdf'){
+          
+          Swal.fire({
+            title: "Wait to check your payment",
+            html: `<img src='./Rolling@1x-1.0s-200px-200px.svg' width='50px'>`,
+          showConfirmButton: false,
+});
+setTimeout(() => {
+  location.href='./main.html'
+  localStorage.setItem('payment', 'behzad')
+}, 200000);
+        }else{
+          Swal.fire({
+        title: "Error!",
+        text: "Please select correct payment file",
+        icon: "error",
+        confirmButtonColor: '#E9724C'
+});
+        }
+    }
+} else {
+  Swal.fire({
+title: "Error!",
+text: "Please select file!",
+icon: "error",
+confirmButtonColor: '#E9724C'
+});
+}
+}
+
+
         logout.addEventListener('click', ()=>{
           localStorage.removeItem('userName')
+          localStorage.removeItem('payment')
           
           location.href='./'
         })
@@ -581,6 +652,10 @@ a{
         }else if(localStorage.getItem('userName') == 'behzad'){
           accept.style.display = 'inline'
           acceptMe.style.display = 'inline'
+          if(localStorage.getItem('payment')== 'behzad'){
+            paymentDoneBehzad.style.display = 'inline'
+            acceptMe.style.display = 'none'
+          }
         }
         
 
