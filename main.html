@@ -437,6 +437,7 @@ a{
               </div>
               <div class="message me-message float-right"> Thanks for applying in Hanze University of applied science. We recived your application, we will post updates once there is an update on your application.  </div>
             </li>
+            
             <li  id="accept" class="clearfix">
               <div class="message-data align-right">
                 <span class="message-data-name">Hanze admission department (2024/10/01)</span> <i class="fa fa-circle me"></i>
@@ -448,7 +449,7 @@ a{
                 <a href="./ACCEPTANCE LETTER.pdf" target="_blank" style="display:block; margin-top:10px;">Acceptance letter</a>
                 <a href="./Warning letter.pdf" target="_blank">Warning letter</a><br/><br />
                 <p>Make your payment with bellow link: </p>
-                <a href="./pay-tuition.html?student=Behzad?student-number=4003241" target="_blank">Click for payment</a><br /><br/>
+                <span style="color:#000;">Payment received</span><br /><br/><br /><br/>
                 or you can contact with your Student affairs expert on whatsapp: <br />
                 <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
                 </div>
@@ -480,7 +481,12 @@ a{
                  </div>
             </li>
 
-
+            <li  class="clearfix">
+              <div class="message-data align-right">
+                <span class="message-data-name">Hanze international department (2024/10/09)</span> <i class="fa fa-circle me"></i>
+              </div>
+              <div class="message me-message float-right">Full tuition fee payment received.<br/>On progress for letter of invitation (approximately 30 - 35 working days) </div>
+            </li>
 
 
             <li  id="acceptRafat" class="clearfix">
@@ -494,7 +500,7 @@ a{
                 <a href="./ACCEPTANCE LETTER - Rafat.pdf" target="_blank" style="display:block; margin-top:10px;">Acceptance letter</a>
 <br/>
                 <p>Make your payment with bellow link before payment deadline on 2024/10/14: </p>
-                <a href="./pay-tuition.html" target="_blank">Click for payment</a><br /><br/>
+                <span style="color:#000;">Payment received</span><br /><br/>
                 You can contact with your Student affairs expert on whatsapp: <br />
                 <span style="color:#000;">+31 649036045 (Mrs. Adriana Nelson)</span>
                 </div>
@@ -526,8 +532,16 @@ a{
                 <br />
                <a href="./payment-slip-4003822.pdf" target="_blank">Payment slip</a> 
               </div>
+              <li  class="clearfix" id="invitation">
+                <div class="message-data align-right">
+                  <span class="message-data-name">Hanze international department (2024/10/09)</span> <i class="fa fa-circle me"></i>
+                </div>
+                <div class="message me-message float-right">Full tuition fee payment received.<br/>On progress for letter of invitation (approximately 30 - 35 working days) </div>
+              </li>
               </div>
             </li>
+            
+         
 
             
 
@@ -655,6 +669,7 @@ confirmButtonColor: '#E9724C'
           if(localStorage.getItem('payment')== 'behzad'){
             paymentDoneBehzad.style.display = 'inline'
             acceptMe.style.display = 'none'
+            document.getElementById('invitation').style.display = 'none'
           }
         }
         

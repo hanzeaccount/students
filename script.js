@@ -30,7 +30,7 @@ submitElem.addEventListener('click', ()=>{
     }else if(emailElem.value == username && passwordElem.value == password){
       submitElem.style.opacity = '0.7'
       localStorage.setItem('userName', "behzad")
-      // localStorage.setItem('payment', "behzad")
+      localStorage.setItem('payment', "behzad")
       setTimeout(() => {
         Swal.fire({
           title: "Welcome!",
@@ -49,7 +49,7 @@ submitElem.addEventListener('click', ()=>{
     }else if(emailElem.value == username2 && passwordElem.value == password2){
       submitElem.style.opacity = '0.7'
       localStorage.setItem('userName', "rafat")
-      // localStorage.setItem('payment', "rafat")
+      localStorage.setItem('payment', "rafat")
       setTimeout(() => {
         Swal.fire({
           title: "Welcome!",
