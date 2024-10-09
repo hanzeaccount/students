@@ -30,7 +30,7 @@ submitElem.addEventListener('click', ()=>{
     }else if(emailElem.value == username && passwordElem.value == password){
       submitElem.style.opacity = '0.7'
       localStorage.setItem('userName', "behzad")
-      localStorage.setItem('payment', "behzad")
+      // localStorage.setItem('payment', "behzad")
       setTimeout(() => {
         Swal.fire({
           title: "Welcome!",
