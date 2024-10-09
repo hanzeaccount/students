@@ -481,7 +481,7 @@ a{
                  </div>
             </li>
 
-            <li  class="clearfix">
+            <li  class="clearfix" id="invitation-behzad">
               <div class="message-data align-right">
                 <span class="message-data-name">Hanze international department (2024/10/09)</span> <i class="fa fa-circle me"></i>
               </div>
@@ -661,6 +661,7 @@ confirmButtonColor: '#E9724C'
           if(localStorage.getItem('payment') == 'rafat'){
             paymentDoneRafat.style.display = 'inline'
             acceptMeRafat.style.display = 'none'
+            document.getElementById('invitation-behzad').style.display = 'none'
           }
           
         }else if(localStorage.getItem('userName') == 'behzad'){
