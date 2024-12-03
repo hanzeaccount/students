@@ -538,6 +538,17 @@ a{
                 </div>
                 <div class="message me-message float-right">Full tuition fee payment received.<br/>On progress for letter of invitation (approximately 30 - 35 working days) </div>
               </li>
+
+
+              <li class="admission-rafat">
+                <div class="message-data align-right">
+                  <span class="message-data-name">Hanze Admission department</span> <i class="fa fa-circle me"></i>
+                </div>
+                <div class="message me-message float-right">Congratulations! Your Admission letter (Invitation letter) has been approved!<br>
+                  <a id="admission-link-rafat" href="./Sultan Ali Rafat Admission.pdf" target="_blank">Download Admission Letter</a>
+                  <a id="admission-link-behzad" href="./Hussain Behzad Admission.pdf" target="_blank">Download Admission Letter</a>
+                </div>
+              </li>
               </div>
             </li>
             
@@ -564,6 +575,9 @@ a{
         const acceptRafat = document.querySelector('#acceptRafat')
         const paymentDoneRafat = document.querySelector('#payment-done-rafat')
         const paymentDoneBehzad = document.querySelector('#payment-done-behzad')
+        const admissionLinkRafat = document.querySelector('#admission-link-rafat')
+        const admissionLinkBehzad = document.querySelector('#admission-link-behzad')
+
         function getFile() {
 
             const input = document.getElementById('fileInput');
@@ -658,19 +672,24 @@ confirmButtonColor: '#E9724C'
           message.textContent = 'Opened an application for master degree in Renewable energy for Feb-2025'
           acceptMeRafat.style.display = 'inline'
           acceptRafat.style.display = 'inline'
+          admissionLinkBehzad.style.display = 'none'
           if(localStorage.getItem('payment') == 'rafat'){
             paymentDoneRafat.style.display = 'inline'
             acceptMeRafat.style.display = 'none'
             document.getElementById('invitation-behzad').style.display = 'none'
+           
           }
           
         }else if(localStorage.getItem('userName') == 'behzad'){
+          document.getElementById('invitation').style.display = 'none'
           accept.style.display = 'inline'
           acceptMe.style.display = 'inline'
+          admissionLinkRafat.style.display = 'none'
           if(localStorage.getItem('payment')== 'behzad'){
             paymentDoneBehzad.style.display = 'inline'
             acceptMe.style.display = 'none'
             document.getElementById('invitation').style.display = 'none'
+           
           }
         }
         
